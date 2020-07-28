@@ -4,6 +4,8 @@ node {
    }
    stage('build') {
       def mvnHome = tool name: 'Apache Maven 3.6.3', type: 'maven'
+      echo "MAVEN HOME"
+      echo $mvnHome
       sh '''
          ${mvnHome}/bin/mvn clean package
          cd target
