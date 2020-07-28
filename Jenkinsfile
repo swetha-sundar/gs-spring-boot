@@ -1,8 +1,11 @@
+tools {
+   maven 'maven3'
+}
 node {
    stage('init') {
       checkout scm
    }
-   stage('build') {
+   stage('build') {     
       sh '''
          mvn clean package
          cd target
