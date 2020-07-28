@@ -12,7 +12,7 @@ node {
          sh "ls"
          sh '''
             cp ../complete/src/main/resources/web.config web.config
-            cp todo-app-java-on-azure-1.0-SNAPSHOT.jar app.jar 
+            cp ../complete/target/spring-boot-0.0.1-SNAPSHOT.jar app.jar 
             zip todo.zip app.jar web.config  
          '''
       }
