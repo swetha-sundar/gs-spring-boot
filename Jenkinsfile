@@ -1,13 +1,12 @@
-tools {
-   maven 'maven3'
-}
-stages {
+node {
    stage('init') {
       checkout scm
    }
-   stage('build') {     
+   stage('build') {
+      withMaven(maven: 'mvn') {
+            sh "mvn clean package"
+         }
       sh '''
-         mvn clean package
          cd target
          cp ../complete/src/main/resources/web.config web.config
          cp todo-app-java-on-azure-1.0-SNAPSHOT.jar app.jar 
