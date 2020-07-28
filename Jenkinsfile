@@ -8,13 +8,14 @@ node {
          sh "pwd"
          sh "ls"
          sh "${mvnHome}/bin/mvn clean package"
-      }      
-      sh '''
-         cd target
-         cp ../complete/src/main/resources/web.config web.config
-         cp todo-app-java-on-azure-1.0-SNAPSHOT.jar app.jar 
-         zip todo.zip app.jar web.config
-      '''
+         sh "ls"
+         sh "cd target"
+         sh '''
+            cp ../complete/src/main/resources/web.config web.config
+            cp todo-app-java-on-azure-1.0-SNAPSHOT.jar app.jar 
+            zip todo.zip app.jar web.config  
+         '''
+      }
    }
    stage('deploy') {
       azureWebAppPublish azureCredentialsId: env.AZURE_CRED_ID,
