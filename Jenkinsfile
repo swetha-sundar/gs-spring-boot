@@ -6,8 +6,9 @@ node {
       def mvnHome = tool name: 'Apache Maven 3.6.3', type: 'maven'
       dir("${env.WORKSPACE}/complete"){
          sh "pwd"
-      }
-      sh "${mvnHome}/bin/mvn clean package"
+         sh "ls"
+         sh "${mvnHome}/bin/mvn clean package"
+      }      
       sh '''
          cd target
          cp ../complete/src/main/resources/web.config web.config
