@@ -3,10 +3,9 @@ node {
       checkout scm
    }
    stage('build') {
-      withMaven(maven: 'mvn') {
-            sh "mvn clean package"
-         }
+      def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
       sh '''
+         ${mvnHome}/bin/mvn clean package
          cd target
          cp ../complete/src/main/resources/web.config web.config
          cp todo-app-java-on-azure-1.0-SNAPSHOT.jar app.jar 
