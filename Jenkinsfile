@@ -8,8 +8,8 @@ node {
          sh "pwd"
          sh "ls"
          sh "${mvnHome}/bin/mvn clean package"
-         sh "ls"
          sh "cd target"
+         sh "ls"
          sh '''
             cp ../complete/src/main/resources/web.config web.config
             cp todo-app-java-on-azure-1.0-SNAPSHOT.jar app.jar 
