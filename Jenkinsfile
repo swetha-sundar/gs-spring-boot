@@ -6,7 +6,7 @@ node {
       def mvnHome = tool name: 'Apache Maven 3.6.3', type: 'maven'
       sh '''
       cd complete     
-      mvnHome/bin/mvn clean package
+      sh "${mvnHome}/bin/mvn clean package"
       '''
       sh '''
          cd target
